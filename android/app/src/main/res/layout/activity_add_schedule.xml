@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="30dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="3dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginVertical="25dp"
+            android:layout_marginHorizontal="10dp">
+
+            <EditText
+                android:id="@+id/edit_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_marginVertical="5dp"
+                android:hint="Title"/>
+            <EditText
+                android:id="@+id/edit_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Description"
+                android:layout_marginVertical="5dp"/>
+
+            <EditText
+                android:id="@+id/edit_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Date"
+                android:layout_marginVertical="5dp"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false" />
+
+            <EditText
+                android:id="@+id/edit_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Time"
+                android:layout_marginVertical="5dp"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:ems="15"
+                android:focusableInTouchMode="false"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp">
+                <androidx.gridlayout.widget.GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:columnCount="2">
+                    <TextView app:layout_columnSpan="1"
+                        app:layout_columnWeight="1"
+                        android:maxWidth="20dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        android:text="Main Gate"/>
+                    <RelativeLayout app:layout_columnSpan="1"
+                        app:layout_columnWeight="1"  >
+
+                        <Switch
+                            android:id="@+id/s_mainG"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </RelativeLayout>
+                </androidx.gridlayout.widget.GridLayout>
+                <androidx.gridlayout.widget.GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:columnCount="2">
+                    <TextView app:layout_columnSpan="1"
+                        app:layout_columnWeight="1"
+                        android:maxWidth="20dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        android:text="Gate 1"/>
+                    <RelativeLayout app:layout_columnSpan="1"
+                        app:layout_columnWeight="1"  >
+                        <Switch
+                            android:id="@+id/s_gateA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                </androidx.gridlayout.widget.GridLayout>
+                <androidx.gridlayout.widget.GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:columnCount="2">
+                    <TextView app:layout_columnSpan="1"
+                        app:layout_columnWeight="1"
+                        android:maxWidth="20dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        android:text="Gate 2"/>
+                    <RelativeLayout app:layout_columnSpan="1"
+                        app:layout_columnWeight="1"  >
+                        <Switch
+                            android:id="@+id/s_gateB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                </androidx.gridlayout.widget.GridLayout>
+                <androidx.gridlayout.widget.GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:columnCount="2">
+                    <TextView app:layout_columnSpan="1"
+                        app:layout_columnWeight="1"
+                        android:maxWidth="20dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        android:text="Gate 3"/>
+                    <RelativeLayout app:layout_columnSpan="1"
+                        app:layout_columnWeight="1"  >
+                        <Switch
+                            android:id="@+id/s_gateC"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+                </androidx.gridlayout.widget.GridLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:textColor="#FFF"
+                android:onClick="onSubmit"
+                android:layout_marginTop="5dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

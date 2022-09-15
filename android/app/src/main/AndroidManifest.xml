@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.softwaresolution.water_irrigation">
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@drawable/icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NoActionBar">
+        <activity
+            android:name=".Activities.AddSchedule"
+            android:label="Add Schedule"
+            android:theme="@style/Theme.Waterirrigation" />
+        <activity
+            android:name=".Activities.Report"
+            android:label="Reports"
+            android:theme="@style/Theme.Waterirrigation" />
+        <activity
+            android:name=".Activities.About"
+            android:label="About"
+            android:theme="@style/Theme.Waterirrigation" />
+        <activity
+            android:name=".Activities.Control"
+            android:label="Control and monitor"
+            android:theme="@style/Theme.Waterirrigation" />
+        <activity
+            android:name=".Activities.Schedule"
+            android:label="Schedule"
+            android:theme="@style/Theme.Waterirrigation" />
+        <activity
+            android:name=".Activities.Activities"
+            android:label="Monitor"
+            android:theme="@style/Theme.Waterirrigation" />
+        <activity android:name=".Activities.LoginForm">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.RegisterForm" />
+        <activity
+            android:name=".Activities.MainActivity"
+            android:label="Home" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.softwaresolution.water_irrigation"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/files_path" />
+        </provider>
+    </application>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+</manifest>

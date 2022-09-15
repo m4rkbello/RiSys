@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "208414469125",
+    "firebase_url": "https://prototypeproject-eeb91.firebaseio.com",
+    "project_id": "prototypeproject-eeb91",
+    "storage_bucket": "prototypeproject-eeb91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208414469125:android:ef3c01d8c026a7fd9a006c",
+        "android_client_info": {
+          "package_name": "com.softwaresolution.water_irrigation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208414469125-rb9qudq0kjs0is5bft8argn5ma0od7m0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6NKhrdodprQwi0AxmVlAzmsVQcqjYYbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208414469125-3g6gsgs9k16r8b27vrtt4rkhanm9lk1q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "208414469125-773p3do5ghu2r67jjhp9cd4q0hsa7nmp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sillimanios.sports",
+                "app_store_id": "123456"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Activities.Control"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_marginBottom="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="21dp"
+        android:textStyle="bold"
+        android:text="Control"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp">
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:columnCount="2">
+            <TextView app:layout_columnSpan="1"
+                app:layout_columnWeight="1"
+                android:maxWidth="20dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:text="Main Gate"/>
+            <RelativeLayout app:layout_columnSpan="1"
+                app:layout_columnWeight="1"  >
+
+                <Switch
+                    android:id="@+id/s_mainG"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+        </androidx.gridlayout.widget.GridLayout>
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:columnCount="2">
+            <TextView app:layout_columnSpan="1"
+                app:layout_columnWeight="1"
+                android:maxWidth="20dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:text="Gate 1"/>
+            <RelativeLayout app:layout_columnSpan="1"
+                app:layout_columnWeight="1"  >
+                <Switch
+                    android:id="@+id/s_gateA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </androidx.gridlayout.widget.GridLayout>
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:columnCount="2">
+            <TextView app:layout_columnSpan="1"
+                app:layout_columnWeight="1"
+                android:maxWidth="20dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:text="Gate 2"/>
+            <RelativeLayout app:layout_columnSpan="1"
+                app:layout_columnWeight="1"  >
+                <Switch
+                    android:id="@+id/s_gateB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </androidx.gridlayout.widget.GridLayout>
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:columnCount="2">
+            <TextView app:layout_columnSpan="1"
+                app:layout_columnWeight="1"
+                android:maxWidth="20dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="19dp"
+                android:textStyle="bold"
+                android:text="Gate 3"/>
+            <RelativeLayout app:layout_columnSpan="1"
+                app:layout_columnWeight="1"  >
+                <Switch
+                    android:id="@+id/s_gateC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </androidx.gridlayout.widget.GridLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="21dp"
+        android:textStyle="bold"
+        android:text="Monitor"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Water level : "/>
+            <TextView
+                android:id="@+id/txt_waterLvl"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp"
+                android:text="12 inch"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Flow rate : "/>
+            <TextView
+                android:id="@+id/txt_Fl"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp"
+                android:text="12 inch"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Output Liquid Quantity : "/>
+            <TextView
+                android:id="@+id/txt_flOutPut"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp"
+                android:text="12 inch"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

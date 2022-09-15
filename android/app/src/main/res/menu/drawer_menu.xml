@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Home"/>
+<!--        <item-->
+<!--            android:id="@+id/nav_profile"-->
+<!--            android:icon="@drawable/ic_person"-->
+<!--            android:title="Profile"/>-->
+        <item
+            android:id="@+id/nav_scheduling"
+            android:icon="@drawable/ic_calendar"
+            android:title="Schedule"/>
+        <item
+            android:id="@+id/nav_control"
+            android:icon="@drawable/ic_control"
+            android:title="Control and monitor"/>
+<!--        <item-->
+<!--            android:id="@+id/nav_monitor"-->
+<!--            android:icon="@drawable/ic_monitor"-->
+<!--            android:title="Activities"/>-->
+        <item
+            android:id="@+id/nav_report"
+            android:icon="@drawable/ic_report"
+            android:title="Reports"/>
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_about"
+            android:title="About"/>
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout"/>
+    </group>
+
+</menu>
