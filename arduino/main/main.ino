@@ -32,7 +32,8 @@ Servo gateC;
 long sendDataCurrentMillis = 0;   
 long sendDataPreviousMillis = 0; 
 
-int ledRed = 15; 
+int led1 = 15; 
+int led2 = 5; 
 int servoPositionClose = 0;      // servo degree
 int servoPositionOpen = 180;      // servo degree
 
@@ -52,6 +53,7 @@ bool isGateBRun = true;
 bool isGateCRun = true;
 
 
+#define water_level_sensor  A0 
 
 #define flow_meter_sensor  D7 
 long currentMillis = 0;
@@ -84,15 +86,17 @@ void setup() {
     delay(15);                   
   }  
 
-  pinMode(ledRed,OUTPUT); 
+  pinMode(led1,OUTPUT); 
+  pinMode(led2,OUTPUT); 
+  digitalWrite(led2,HIGH);
 
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("connecting");
   while (WiFi.status() != WL_CONNECTED) { 
     Serial.print(".");
-    digitalWrite(ledRed,LOW);
+    digitalWrite(led1,LOW);
     delay(500);
-    digitalWrite(ledRed,HIGH);
+    digitalWrite(led1,HIGH);
     delay(500);
   }
   Serial.println();
@@ -110,9 +114,9 @@ void setup() {
   Serial.print("Starting Firebase");
   for(int i = 0; i < 1; i++){
     Serial.print(".");
-    digitalWrite(ledRed,LOW);
+    digitalWrite(led1,LOW);
     delay(500);
-    digitalWrite(ledRed,HIGH);
+    digitalWrite(led1,HIGH);
     delay(500);
   } 
       
@@ -126,13 +130,13 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(flow_meter_sensor), pulseCounter, FALLING);
   
   Serial.println("started");   
-  digitalWrite(ledRed,LOW);
+  digitalWrite(led1,LOW);
 } 
 bool isRun = false;
 void loop() {  
+  loopWaterLevel();
   loopFlowMeter();   
   loopGetData();
-  
 } 
 
 void loopGetData(){
@@ -154,7 +158,7 @@ void loopGetData(){
     isGateC = fGateC == 1 ? true : false;  
 
     if(isRun){
-      digitalWrite(ledRed,HIGH);
+      digitalWrite(led1,HIGH);
       if(isMain != isMainRun){
         if(fMainGate == 1 ? true : false){ 
           for (posMain = 0; posMain <= 180; posMain += 10) {   
@@ -219,7 +223,7 @@ void loopGetData(){
     }
     isRun = true;
 
-    digitalWrite(ledRed,LOW); 
+    digitalWrite(led1,LOW); 
     Serial.println("========"); 
   } 
 }
@@ -249,4 +253,9 @@ void loopFlowMeter(){
     Firebase.setFloat(fbdo, F("/waterIrrigation/flL"), totalMilliLitres/1000);
     Serial.println("L"); 
   }
+}
+
+void loopWaterLevel(){ 
+  int waterLevel = analogRead(water_level_sensor); 
+  Firebase.setInt(fbdo, F("/waterIrrigation/waterLevel"), waterLevel); 
 }

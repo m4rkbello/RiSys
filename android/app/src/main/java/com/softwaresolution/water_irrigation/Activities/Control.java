@@ -9,6 +9,7 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.softwaresolution.water_irrigation.Pojo.Device;
 import com.softwaresolution.water_irrigation.R;
 
@@ -52,18 +53,31 @@ public class Control extends AppCompatActivity implements CompoundButton.OnCheck
     @Override
     protected void onStart() {
         super.onStart();
+        Log.d(TAG, "onStart");
         DatabaseReference db = FirebaseDatabase.getInstance().getReference("waterIrrigation");
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try{
                     Device d = dataSnapshot.getValue(Device.class);
+                    Log.d(TAG, new Gson().toJson(d));
                     mainG.setChecked(d.getMainGate() == 1);
                     gateA.setChecked(d.getGateA() == 1);
                     gateB.setChecked(d.getGateB() == 1);
                     gateC.setChecked(d.getGateC() == 1);
+                    int value = d.getWaterLevel();
+                    if (value > 470) {
+                        d.setWaterStatus("High");
+                    }
+                    else if ((value > 370) && (value < 470)) {
+                        d.setWaterStatus("Normal");
+                    }
+                    else{
+                        d.setWaterStatus("Low");
+                    }
 
-//                    ((TextView) findViewById(R.id.txt_waterLvl)).setText(d.getWaterDistance());
+                    ((TextView) findViewById(R.id.txt_waterLvl)).setText(d.getWaterLevel().toString());
+                    ((TextView) findViewById(R.id.txt_waterLvlStatus)).setText(d.getWaterStatus() );
                     ((TextView) findViewById(R.id.txt_Fl)).setText(d.getFlRate()+" L/min");
                     ((TextView) findViewById(R.id.txt_flOutPut)).setText(d.getFlmL()+" ml / "+d.getFlL()+" L");
                 }catch (Exception ex){

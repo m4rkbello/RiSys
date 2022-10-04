@@ -9,28 +9,14 @@ public class Device {
     private Float flL;
     private Float flRate;
     private Float flmL;
-    private Integer waterDistance;
+    private String waterStatus;
+    private Integer waterLevel;
 
-    /**
-     * No args constructor for use in serialization
-     *
-     */
     public Device() {
     }
 
-    /**
-     *
-     * @param flRate
-     * @param gateC
-     * @param flmL
-     * @param flL
-     * @param waterDistance
-     * @param mainGate
-     * @param gateB
-     * @param gateA
-     */
     public Device(Integer mainGate, Integer gateA, Integer gateB, Integer gateC, Float flL,
-                  Float flRate, Float flmL,   Integer waterDistance) {
+                  Float flRate, Float flmL,  String  waterStatus,Integer waterLevel) {
         super();
         this.mainGate = mainGate;
         this.gateA = gateA;
@@ -39,7 +25,8 @@ public class Device {
         this.flL = flL;
         this.flRate = flRate;
         this.flmL = flmL;
-        this.waterDistance = waterDistance;
+        this.waterStatus = waterStatus;
+        this.waterLevel = waterLevel;
     }
 
     public Integer getMainGate() {
@@ -98,12 +85,20 @@ public class Device {
         this.flmL = flmL;
     }
 
-    public Integer getWaterDistance() {
-        return waterDistance;
+    public Integer getWaterLevel() {
+        return waterLevel;
     }
 
-    public void setWaterDistance(Integer waterDistance) {
-        this.waterDistance = waterDistance;
+    public void setWaterLevel(Integer waterLevel) {
+        this.waterLevel = waterLevel;
+    }
+
+    public String getWaterStatus() {
+        return waterStatus;
+    }
+
+    public void setWaterStatus(String waterStatus) {
+        this.waterStatus = waterStatus;
     }
 
 }

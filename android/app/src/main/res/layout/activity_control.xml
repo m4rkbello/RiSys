@@ -136,7 +136,26 @@
                 android:layout_width="match_parent"
                 android:textColor="@color/colorPrimary"
                 android:textSize="14dp"
-                android:text="12 inch"/>
+                android:text="0"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Water level status: "/>
+            <TextView
+                android:id="@+id/txt_waterLvlStatus"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14dp"
+                android:text="0"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -155,7 +174,7 @@
                 android:layout_width="match_parent"
                 android:textColor="@color/colorPrimary"
                 android:textSize="14dp"
-                android:text="12 inch"/>
+                android:text="0"/>
         </LinearLayout>
 
         <LinearLayout
@@ -175,7 +194,7 @@
                 android:layout_width="match_parent"
                 android:textColor="@color/colorPrimary"
                 android:textSize="14dp"
-                android:text="12 inch"/>
+                android:text="0"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
