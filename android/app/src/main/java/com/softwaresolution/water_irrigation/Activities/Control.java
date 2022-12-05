@@ -60,16 +60,18 @@ public class Control extends AppCompatActivity implements CompoundButton.OnCheck
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try{
                     Device d = dataSnapshot.getValue(Device.class);
+                    d.setFlmL(Float.parseFloat(String.valueOf((d.getFlmL()*33.33))));
+                    d.setFlL(d.getFlmL()/1000);
                     Log.d(TAG, new Gson().toJson(d));
                     mainG.setChecked(d.getMainGate() == 1);
                     gateA.setChecked(d.getGateA() == 1);
                     gateB.setChecked(d.getGateB() == 1);
                     gateC.setChecked(d.getGateC() == 1);
                     int value = d.getWaterLevel();
-                    if (value > 470) {
+                    if (value > 700  ) {
                         d.setWaterStatus("High");
                     }
-                    else if ((value > 370) && (value < 470)) {
+                    else if ((value > 301  ) && (value < 699)) {
                         d.setWaterStatus("Normal");
                     }
                     else{

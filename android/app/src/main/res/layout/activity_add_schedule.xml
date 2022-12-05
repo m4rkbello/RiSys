@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:layout_marginVertical="5dp"
-                android:hint="Title"/>
+                android:hint="Farmer's Name"/>
             <EditText
                 android:id="@+id/edit_description"
                 android:layout_width="match_parent"
@@ -65,6 +65,37 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginLeft="10dp">
+
+                <androidx.gridlayout.widget.GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:columnCount="2">
+                    <TextView app:layout_columnSpan="1"
+                        app:layout_columnWeight="1"
+                        android:maxWidth="20dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="19dp"
+                        android:textStyle="bold"
+                        android:text="Is trigger by water volume"/>
+                    <RelativeLayout app:layout_columnSpan="1"
+                        app:layout_columnWeight="1"  >
+
+                        <Switch
+                            android:id="@+id/s_is_water"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </RelativeLayout>
+                </androidx.gridlayout.widget.GridLayout>
+
+                <EditText
+                    android:id="@+id/edit_water_v"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Water volume (ml)"
+                    android:enabled="false"
+                    android:layout_marginBottom="20dp"/>
+
                 <androidx.gridlayout.widget.GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

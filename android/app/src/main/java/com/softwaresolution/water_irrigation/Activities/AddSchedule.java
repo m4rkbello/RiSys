@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -28,13 +30,15 @@ import com.softwaresolution.water_irrigation.Pojo.Device;
 import com.softwaresolution.water_irrigation.Pojo.SchedulePojo;
 import com.softwaresolution.water_irrigation.R;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-public class AddSchedule extends AppCompatActivity {
+public class AddSchedule extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
     String TAG= "AddSchedule";
     boolean isUpdate = false;
     int index = -1;
@@ -42,6 +46,7 @@ public class AddSchedule extends AppCompatActivity {
     Calendar dateTimeCalendar= Calendar.getInstance();
     EditText editDate,editTime;
     Loading loading;
+    Switch s_is_water;
 
     ArrayList<SchedulePojo> spjs = new ArrayList<>( );
     DatabaseReference db = FirebaseDatabase.getInstance().getReference("waterScheduling");
@@ -51,6 +56,8 @@ public class AddSchedule extends AppCompatActivity {
         setContentView(R.layout.activity_add_schedule);
         editDate=(EditText) findViewById(R.id.edit_date);
         editTime=(EditText) findViewById(R.id.edit_time);
+        s_is_water = (Switch) findViewById(R.id.s_is_water);
+        s_is_water.setOnCheckedChangeListener(this);
         loading = new Loading(AddSchedule.this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -67,6 +74,8 @@ public class AddSchedule extends AppCompatActivity {
             ((Switch) findViewById(R.id.s_gateA)).setChecked(sched.getGateA() == 1 ? true : false);
             ((Switch) findViewById(R.id.s_gateB)).setChecked(sched.getGateB() == 1 ? true : false);
             ((Switch) findViewById(R.id.s_gateC)).setChecked(sched.getGateC() == 1 ? true : false);
+            ((Switch) findViewById(R.id.s_is_water)).setChecked(sched.getWaterLevelTrigger() > 0 ? true : false);
+            ((EditText) findViewById(R.id.edit_water_v)).setText(sched.getWaterLevelTrigger().toString());
             dateTimeCalendar.setTimeInMillis(sched.getTimestamp());
 
             SimpleDateFormat df = new SimpleDateFormat("MM/dd/yy");
@@ -131,6 +140,9 @@ public class AddSchedule extends AppCompatActivity {
                                 else {
                                     hour_of_12_hour_format = sHour;
                                 }
+
+                                dateTimeCalendar.set(Calendar.HOUR_OF_DAY,sHour);
+                                dateTimeCalendar.set(Calendar.MINUTE,sMinute);
                                 editTime.setText(hour_of_12_hour_format + ":" + sMinute + " " + status);
                             }
                         }, hour, minutes, false);
@@ -150,11 +162,12 @@ public class AddSchedule extends AppCompatActivity {
     }
 
     public void onSubmit(View v){
-        Calendar _calendar = dateTimeCalendar;
-        _calendar.set(Calendar.HOUR_OF_DAY,dateTimeCalendar.get(Calendar.HOUR_OF_DAY));
-        _calendar.set(Calendar.MINUTE,dateTimeCalendar.get(Calendar.MINUTE));
-        Long timestamp = _calendar.getTimeInMillis();
-
+        Long timestamp = dateTimeCalendar.getTimeInMillis();
+        int waterLevel = 0;
+        String sWaterLevel = ((TextView) findViewById(R.id.edit_water_v)).getText().toString();
+        if(!sWaterLevel.isEmpty()){
+            waterLevel  = Integer.parseInt(sWaterLevel);
+        }
         SchedulePojo spj = new SchedulePojo(
                 ((EditText) findViewById(R.id.edit_title)).getText().toString(),
                 ((EditText) findViewById(R.id.edit_description)).getText().toString(),
@@ -162,9 +175,12 @@ public class AddSchedule extends AppCompatActivity {
                 ((Switch) findViewById(R.id.s_mainG)).isChecked() ? 1 : 0,
                 ((Switch) findViewById(R.id.s_gateA)).isChecked() ? 1 : 0,
                 ((Switch) findViewById(R.id.s_gateB)).isChecked() ? 1 : 0,
-                ((Switch) findViewById(R.id.s_gateC)).isChecked() ? 1 : 0
+                ((Switch) findViewById(R.id.s_gateC)).isChecked() ? 1 : 0,
+                waterLevel
         );
 
+        Log.d(TAG,new Gson().toJson(spj));
+        Log.d(TAG,String.valueOf(dateTimeCalendar.get(Calendar.MINUTE)));
         if(TextUtils.isEmpty(spj.getTitle())) {
             Toast.makeText(AddSchedule.this, "Title is empty", Toast.LENGTH_SHORT).show();
             return;
@@ -202,5 +218,17 @@ public class AddSchedule extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return false;
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if(buttonView == s_is_water){
+            TextView edit_water_v =(TextView) findViewById(R.id.edit_water_v);
+            if(!isChecked){
+                edit_water_v.setText("");
+            }
+            edit_water_v.setEnabled(isChecked);
+
+        }
     }
 }

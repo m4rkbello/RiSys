@@ -27,6 +27,7 @@ import com.google.firebase.storage.UploadTask;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.UUID;
 
 
 import com.softwaresolution.water_irrigation.Interactive.DialogGetPicture;
@@ -142,7 +143,8 @@ public class RegisterForm extends AppCompatActivity implements View.OnClickListe
     private void saveAccountDb(final String user) {
 
         Uri file = BitmapUtils.getImageUri(RegisterForm.this,bitmapProfile);
-        final StorageReference storageReference = reference.child("WaterIrrigation User account");
+        final StorageReference storageReference = reference.child("WaterIrrigation User account/"
+                + UUID.randomUUID().toString());
 
         storageReference.putFile(file).continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
             @Override

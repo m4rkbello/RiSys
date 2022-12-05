@@ -35,6 +35,9 @@ public class SchedulePojo {
     @SerializedName("gateC")
     @Expose
     private Integer gateC;
+    @SerializedName("waterLevelTrigger")
+    @Expose
+    private Integer waterLevelTrigger;
     @SerializedName("isExecuted")
     @Expose
     private Boolean isExecuted;
@@ -58,7 +61,7 @@ public class SchedulePojo {
      */
     public SchedulePojo(String title, String description, Long timestamp,
                         Integer mainGate, Integer gateA,
-                        Integer gateB, Integer gateC ) {
+                        Integer gateB, Integer gateC, Integer waterLevelTrigger ) {
         super();
         this.title = title;
         this.description = description;
@@ -67,6 +70,8 @@ public class SchedulePojo {
         this.gateA = gateA;
         this.gateB = gateB;
         this.gateC = gateC;
+        this.waterLevelTrigger = waterLevelTrigger;
+
         this.isExecuted = false;
     }
 
@@ -124,6 +129,15 @@ public class SchedulePojo {
 
     public void setGateC(Integer gateC) {
         this.gateC = gateC;
+    }
+
+
+    public Integer getWaterLevelTrigger() {
+        return waterLevelTrigger;
+    }
+
+    public void setWaterLevelTrigger(Integer waterLevelTrigger) {
+        this.waterLevelTrigger = waterLevelTrigger;
     }
 
     public Boolean getIsExecuted() {
