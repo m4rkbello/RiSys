@@ -24,10 +24,10 @@
 <!--            android:id="@+id/nav_monitor"-->
 <!--            android:icon="@drawable/ic_monitor"-->
 <!--            android:title="Activities"/>-->
-<!--        <item-->
-<!--            android:id="@+id/nav_report"-->
-<!--            android:icon="@drawable/ic_report"-->
-<!--            android:title="Reports"/>-->
+        <item
+            android:id="@+id/nav_report"
+            android:icon="@drawable/ic_report"
+            android:title="History"/>
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_about"

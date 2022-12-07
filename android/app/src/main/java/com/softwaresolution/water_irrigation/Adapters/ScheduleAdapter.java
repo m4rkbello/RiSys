@@ -70,7 +70,9 @@ public class ScheduleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         h.txt_desc.setText(schedPojo.getTitle());
         h.txt_datetime.setText(df.format(c.getTime()));
         h.txt_exe.setText(schedPojo.getIsExecuted() ? "Executed" : "Not yet execute");
-
+        if(schedPojo.getIsExecuted()){
+            h.btn_update.setVisibility(View.GONE);
+        }
         h.btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

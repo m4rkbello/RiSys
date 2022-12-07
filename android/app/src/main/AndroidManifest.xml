@@ -32,6 +32,10 @@
             android:label="Schedule"
             android:theme="@style/Theme.Waterirrigation" />
         <activity
+            android:name=".Activities.History"
+            android:label="History"
+            android:theme="@style/Theme.Waterirrigation" />
+        <activity
             android:name=".Activities.Activities"
             android:label="Monitor"
             android:theme="@style/Theme.Waterirrigation" />

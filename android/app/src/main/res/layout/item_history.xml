@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="7dp"
+        android:padding="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2B2B2B"
+                    android:textStyle="bold"
+                    android:textSize="22dp"
+                    android:text="Farmer's Name"/>
+                <TextView
+                    android:id="@+id/txt_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#2B2B2B"
+                    android:text="Description"/>
+
+                <TextView
+                    android:id="@+id/txt_maingate"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#2B2B2B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Main Gate : 1"/>
+                <TextView
+                    android:id="@+id/txt_gatea"
+                    android:textColor="#2B2B2B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Main Gate : 2"/>
+                <TextView
+                    android:id="@+id/txt_gateb"
+                    android:textColor="#2B2B2B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Main Gate : 3"/>
+                <TextView
+                    android:id="@+id/txt_gatec"
+                    android:textColor="#2B2B2B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Main Gate : 4"/>
+
+                <TextView
+                    android:id="@+id/txt_Fl"
+                    android:textColor="#2B2B2B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="txt_waterLevel"/>
+                <TextView
+                    android:id="@+id/txt_flOutPut"
+                    android:textColor="#2B2B2B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="txt_waterLevel"/>
+
+                <TextView
+                    android:id="@+id/txt_waterLevel"
+                    android:textColor="#2B2B2B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="txt_waterLevel"/>
+                <TextView
+                    android:id="@+id/txt_waterLvlStatus"
+                    android:textColor="#2B2B2B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="txt_waterLvlStatus"/>
+                <TextView
+                    android:id="@+id/txt_waterLevelTrigger"
+                    android:textColor="#2B2B2B"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="txt_waterLevel"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:text="Date and time : "
+                        android:textColor="@color/colorPrimary"/>
+                    <TextView
+                        android:id="@+id/txt_datetime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="June 02 1999 12 : 20 pm"
+                        android:textColor="#2B2B2B"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

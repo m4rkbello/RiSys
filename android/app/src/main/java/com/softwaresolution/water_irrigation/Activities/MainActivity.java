@@ -92,9 +92,9 @@ public class MainActivity extends AppCompatActivity
 //            case R.id.nav_monitor:
 //                startActivity(new Intent(MainActivity.this, Activities.class));
 //                break;
-//            case R.id.nav_report:
-//                startActivity(new Intent(MainActivity.this, Report.class));
-//                break;
+            case R.id.nav_report:
+                startActivity(new Intent(MainActivity.this, History.class));
+                break;
             case R.id.nav_about:
                 startActivity(new Intent(MainActivity.this, About.class));
                 break;
